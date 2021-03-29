@@ -1,0 +1,111 @@
+.abc {
+    padding: 1em;
+    
+  }
+  
+    
+    .abc input{
+      width: 100%;
+      border: none !important;
+      outline: none;
+      font-size: 1.3em;
+    }
+    .abc input:focus{
+      margin-bottom: 2em;
+    }
+    
+    .abc__option{
+      color: #495867;
+      margin: .4em;
+    }
+    .abc__select {
+      max-height: 300px;
+      overflow-y: auto;
+      margin: .1em .5em;
+      font-size: 1.3em;
+  
+    }
+  
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+    }
+     
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888; 
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555; 
+    }
+  
+  
+    select__menu-list::-webkit-scrollbar {
+      width: 4px;
+      height: 0px;
+    }
+    select__menu-list::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    select__menu-list::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+    select__menu-list::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  
+    /* Imagen en Formulario */
+    
+  #imageCover,
+  #addCover{
+    width: 600px;
+    height: 200px;
+    border-radius: 2em;
+    cursor: pointer;
+    z-index: -10!important;
+  }
+
+  #addCover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border: none;
+    background: #eff3fe;
+    color: #000;
+    z-index:-10!important;
+   
+  }
+
+
+  #imageProfilPet,
+  #addImage {
+    position:relative;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 2em;
+    cursor: pointer;
+    margin-top: -4em;
+    z-index: 10 !important;
+
+  }
+  
+  #addImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border: none;
+    background: #eff3fe;
+    color: #000;
+    z-index: 10 !important;
+  }
+    
+    

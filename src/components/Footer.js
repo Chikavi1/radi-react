@@ -5,14 +5,14 @@ const Footer = () => (
     <div class="max-w-6xl m-auto text-gray-800 flex flex-wrap justify-left">
         <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
             <div class="text-xs uppercase text-gray-400 font-medium mb-6">
-                Getting Started
+                Empezando
             </div>
 
             <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
                 Adoptar
             </a>
             <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Encontrar perros perdidos
+                Perros perdidos
             </a>
             <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
                 
@@ -25,9 +25,6 @@ const Footer = () => (
             </a>
             <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
                  Guia
-            </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                IntelliSense
             </a>
         </div>
 
@@ -61,7 +58,7 @@ const Footer = () => (
 
         <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
             <div class="text-xs uppercase text-gray-400 font-medium mb-6">
-                Customization
+                Aportes
             </div>
 
             <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
@@ -73,18 +70,10 @@ const Footer = () => (
             <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
                 Patrocinadores
             </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Customizing Colors
+            <a href="/QA" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
+                Preguntas y Respuestas
             </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Customizing Spacing
-            </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Configuring Variants
-            </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Plugins
-            </a>
+           
         </div>
 
         <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">

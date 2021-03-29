@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect, useRef } from 'react'
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import SelectSearch, { fuzzySearch } from 'react-select-search';
+import { countries } from '../data';
+import '../CrearMascota.css';
 
 export const Formulario = ({history}) => {
 
+  
+    const [city, setCity] = useState('MX');
 
     const [pets,setPets] = useState({
 
@@ -65,28 +70,100 @@ export const Formulario = ({history}) => {
         })
     }
 
-    
-    
-
-    const handleSubmit = e => {
+    const handleSubmit = async e  => {
         e.preventDefault();
 
-        axios.post('http://localhost:8080/pets/store',pets)
-                .then(res =>{
-                    console.log(res)
+        const formData = new FormData();
+        formData.append('photo',image);
+        formData.append('name',pets.name);
+        formData.append('color',pets.color);
+        formData.append('city',city);
+        formData.append('age',pets.age);
+        
+        formData.append('description',pets.description);
+        formData.append('size',pets.size);
+        formData.append('race',pets.race);
+        formData.append('gender',pets.gender);
+        formData.append('status',pets.status);
+        
+        formData.append('vacumms_id',pets.vacumms_id);
+        formData.append('user_id',pets.user_id);
+        formData.append('verified',pets.verified);
+        formData.append('specie',pets.specie);
+        formData.append('code',pets.code);
+        formData.append('geolocation',pets.geolocation);
 
-
-                    // redireccionar
-
-                    history.push('/adoptar');
-                });
+        try{    
+            const res = await axios.post('http://localhost:8080/pets/store',formData,{
+                headers: {
+                    'Content-Type':'multipart/form-data'
+                }
+            });
+            if(res.status === 200){
+                history.push('/adoptar');
+            }
+            
+        }catch(error){
+            console.log(error);
+        }
 
     }
+
+    // logica para la subida de imagen
+
+    const fileInputRef = useRef()
+    const [image,setImage] = useState();
+    const [preview,setPreview] = useState()
+
+    useEffect(() => { 
+        if(image){
+            const reader = new FileReader();
+            reader.onloadend = ( ) => {
+                setPreview(reader.result);
+            };
+            reader.readAsDataURL(image);
+        }else{
+            setPreview(null);
+        }
+    }, [image])
 
 
     return (
         <form   className="sm:w-2/4 m-3" 
                 onSubmit={handleSubmit}>
+        
+       
+            <div className="mb-3 pt-0 p-3">
+                
+                { preview ? ( 
+                <img id="imageProfilPet" src={preview} style={{ objectFit: 'cover' }} onClick={ () => {
+                    setImage(null);
+                } } /> 
+                ) : (
+                <button id="addImage" 
+                    onClick={(event) => {
+                        event.preventDefault();
+                        fileInputRef.current.click();
+                        
+                    }}
+                > Sube Imagen</button>
+                    )}
+                <input  type="file"
+                        style={{ display: 'none' }}
+                        ref={ fileInputRef }
+                        accept="image/*"
+                        onChange={(event) => {
+                            const file = event.target.files[0];
+                            if(file && file.type.substr(0,5) === "image"){
+                                setImage(file);
+                            }else{
+                                setImage(null);
+                            }
+                        }} 
+                        name="photo" 
+                        placeholder="agrega link de la foto" 
+                        /> 
+            </div>
 
             <div className="mb-3 pt-0 p-3">
                 <input  type="text"
@@ -97,44 +174,27 @@ export const Formulario = ({history}) => {
                         />
             </div>
 
-            {/* <div className="mb-3 pt-0 p-3">
-                <input  type="text"
-                        onChange={handleChange} 
-                        name="photo" 
-                        placeholder="agrega link de la foto" 
-                        className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
-                        />
-            </div> */}
 
         <div className="grid grid-cols-2">
             <div className="col-span-1">
                 <div className="mb-3 pt-0 p-3">
-                <select  name="cargo" class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full">
-                    <option value="Desarrollador">1</option>
-                    <option value="Lider">2</option>
-                    <option value="Lider">3</option>
-                    <option value="Lider">4</option>
-                    <option value="Lider">5</option>
-                    <option value="Lider">6</option>
-                    <option value="Lider">7</option>
-                    <option value="Lider">8</option>
-                    <option value="Lider">9</option>
-                    <option value="Lider">10</option>
-                    <option value="Lider">11</option>
-                    <option value="Lider">12</option>
-                    <option value="Lider">13</option>
-                    <option value="Lider">14</option>
-                    <option value="Lider">15 +</option>
-
-
+                <select onChange={handleChange}  name="age" class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15 +</option>
                     </select>
-
-                    {/* <input  type="text"
-                            onChange={handleChange} 
-                            name="age" 
-                            placeholder="Edad de la mascota" 
-                            className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
-                            /> */}
                 </div>
             </div>
 
@@ -214,19 +274,24 @@ export const Formulario = ({history}) => {
         </div>
  
 
-            
+    <div className="mb-3 pt-0 p-3">
 
-
-            <div className="mb-3 pt-0 p-3">
-                <input  type="text"
-                        onChange={handleChange} 
-                        name="city" 
-                        placeholder="ciudad" 
-                        className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
-                        />
-            </div>
-
-          
+        <SelectSearch
+            options={countries}
+            search
+            name="city"
+            onChange={setCity}
+            // filterOptions={(options) => {
+            //     const filter = fuzzySearch(options);
+            //     return (q) => filter(q).slice(0, 6);
+            // }}
+            filterOptions={fuzzySearch}
+            emptyMessage="No hay Concidencias"
+            placeholder="Busca tu pais"
+            maxMenuHeight={250}
+            className="abc px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
+            />
+    </div>
 
             <div className="mb-3 pt-0 p-3">
                 <textarea  type="text"
@@ -239,33 +304,6 @@ export const Formulario = ({history}) => {
                 ></textarea>
             </div>
 
-           
-
-            
-            {/* <div className="mb-3 pt-0 p-3">
-                <input  type="text"
-                        onChange={handleChange} 
-                        name="vacumms_id" 
-                        placeholder="vacuna_id" 
-                        className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
-                        />
-            </div> */}
-            {/* <div className="mb-3 pt-0 p-3">
-                <input  type="text"
-                        onChange={handleChange} 
-                        name="user_id" 
-                        placeholder="usuario_id" 
-                        className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
-                        />
-            </div> */}
-            {/* <div className="mb-3 pt-0 p-3">
-                <input  type="text"
-                        onChange={handleChange} 
-                        name="verified" 
-                        placeholder="verificado" 
-                        className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
-                        />
-            </div> */}
 
             {/* tengo que agregar imagenes en div o cards */}
 
@@ -304,20 +342,9 @@ export const Formulario = ({history}) => {
                         className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
                         />
             </div>
-           
-            {/* <div className="mb-3 pt-0 p-3">
-                <input  type="text"
-                        onChange={handleChange} 
-                        name="gender" 
-                        placeholder="Genero" 
-                        className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
-                        />
-            </div> */}
-
-
             <p className="ml-5 font-bold text-gray-600">Estatus</p>
 
- <div className="grid md:grid-cols-4 grid-cols-2 gap-2 my-6 px-4">
+    <div className="grid md:grid-cols-4 grid-cols-2 gap-2 my-6 px-4">
                 <div onClick={ () => { handleStatus(0) }} className="md:col-start-2 col-span-1">
                     <div className={!pets.status?
                         "bg-purple-600 border-4 border-gray-800 text-center text-white rounded md:h-24" :
@@ -341,28 +368,6 @@ export const Formulario = ({history}) => {
                     </div>
                 </div>
             </div>
-           
-
-            {/* <div className="mb-3 pt-0 p-3">
-                <input  type="text"
-                        onChange={handleChange} 
-                        name="status" 
-                        placeholder="estatus" 
-                        className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
-                        />
-            </div> */}
-
-
-            {/* <div className="mb-3 pt-0 p-3">
-                <input  type="text"
-                        onChange={handleChange} 
-                        name="specie" 
-                        placeholder="especie" 
-                        className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
-                        />
-            </div> */}
-
-
             {/* <div className="mb-3 pt-0 p-3">
                 <input  type="text"
                         onChange={handleChange} 
@@ -371,22 +376,13 @@ export const Formulario = ({history}) => {
                         className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
                         />
             </div> */}
-
             <div>
                 <label className="inline-flex items-center ml-4">
                     <input name="geolocation"  onChange={handleChange}  type="checkbox" className="form-checkbox text-green-500" />
                     <span className="ml-2">Permite ubicación</span>
                 </label>
             </div>
-{/*                 
-            <div className="mb-3 pt-0 p-3">
-                <input  type="text"
-                        
-                        
-                        placeholder="permite geolocalizacion?" 
-                        className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
-                        />
-            </div> */}
+
             
             <div className="mb-3 pt-0 p-3">
                 <input  type="submit"
@@ -397,5 +393,4 @@ export const Formulario = ({history}) => {
         </form>
     )
 }
-
 export default withRouter(Formulario)

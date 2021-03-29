@@ -1,0 +1,43 @@
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    40%{
+        opacity: 0;
+    }
+    100% {
+        height: 0;
+        opacity: 0;
+        
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    40%{
+        opacity: 1;
+       
+    }
+    100% {
+        opacity: 1;
+        
+    }
+}
+
+
+
+.fading-search{
+    animation-name: fadeIn;
+    animation-duration: 2.0s;
+    animation-fill-mode: forwards;
+    will-change: opacity; 
+}
+
+.fading {
+    animation-name: fadeOut;
+    animation-duration: 6.0s;
+    animation-fill-mode: forwards;
+    will-change: opacity;
+}

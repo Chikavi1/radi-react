@@ -19,7 +19,7 @@ export const Posts = ({posts,loading}) => {
                 <Link to={`mascotas/${post.id}`} key={post.id}   data-aos="fade-up"  className="mb-10  sm:max-w-xs sm:w-full  mt-6 sm:flex-shrink-0  sm:px-2">
                     <div>
                         <div className="relative pb-5/6">
-                            <img className="w-full object-cover rounded-lg shadow-md h-64"  src={post.photo} />
+                            <img className="w-full object-cover rounded-lg shadow-md h-64"  src={`http://localhost:8080/${post.photo}`} />
                         </div>
                             
                         <div className="relative px-2 -mt-16 ">

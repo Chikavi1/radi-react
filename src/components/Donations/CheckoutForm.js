@@ -73,11 +73,13 @@ const CheckoutForm = ({amount,setAmount}) => {
 
     <div className="col-span-1 ">
 
-      <h1 className="text-4xl	my-2 mx-2 font-bold">Donar ${amount}</h1>
-      <button onClick={ () => setAmount(100) }  className="px-4 py-4 font-bold bg-gray-300 w-32 inline-block mx-2 my-2 rounded-lg	">100 MXN</button>
-      <button onClick={ () => setAmount(200) }  className="px-4 py-4 font-bold  bg-gray-300 w-32 inline-block mx-2 my-2 rounded-lg	">200 MXN</button>
-      <button onClick={ () => setAmount(500) }  className="px-4 py-4 font-bold  bg-gray-300 w-32 inline-block mx-2 my-2 rounded-lg	">500 MXN</button>
-      <button onClick={ () => setAmount(1000) }  className="px-4 py-4 font-bold  bg-gray-300 w-32 inline-block mx-2 my-2 rounded-lg	">1000 MXN</button>
+      <h1 className="md:text-4xl	text-xl	 text-center			 my-2 mx-2 font-bold">Donar ${amount}</h1>
+      <div className="mx-8 md:mx-0">
+        <button onClick={ () => setAmount(100) }   className="px-4 py-4 font-bold  bg-gray-300 w-32 inline-block mx-2 my-2 rounded-lg	">100 MXN</button>
+        <button onClick={ () => setAmount(200) }   className="px-4 py-4 font-bold  bg-gray-300 w-32 inline-block mx-2 my-2 rounded-lg	">200 MXN</button>
+        <button onClick={ () => setAmount(500) }   className="px-4 py-4 font-bold  bg-gray-300 w-32 inline-block mx-2 my-2 rounded-lg	">500 MXN</button>
+        <button onClick={ () => setAmount(1000) }  className="px-4 py-4 font-bold  bg-gray-300 w-32 inline-block mx-2 my-2 rounded-lg	">1000 MXN</button>
+      </div>
 
     {/* <input type="text" className="w-3/4 border-black bg-gray-200 rounded-lg	mt-3 ml-3 p-2" placeholder="Ingresa otra cantidad" /> */}
         <CardElement  className="w-10/12 border-black bg-gray-200 rounded-lg mt-3 ml-3 p-2" />

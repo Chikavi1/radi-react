@@ -1,6 +1,6 @@
 import axios from 'axios';
-import '../App.css';
-import Map from './Map';
+// import '../App.css';
+import Map from '../Map';
 import { Link} from 'react-router-dom';
 
 import React,{ useState,useEffect } from 'react'
@@ -53,10 +53,10 @@ export const Albergue = (props) => {
 return(
 
     <div className="z-0 bg-gray-50 h-screen" >
-        <img class="w-full p-2 rounded-3xl	" src="https://i.ibb.co/0qgNYLB/118114949-3230889310326165-2393965044989808666-o.jpg" />
+        <img style={{ objectFit: 'cover' }} class="w-full p-2 rounded-3xl	" src="https://i.ibb.co/0qgNYLB/118114949-3230889310326165-2393965044989808666-o.jpg" />
             <center>
                 <div className="-mt-12  w-48  rounded-2xl ">
-                    <img className="rounded-2xl w-36 h-36 shadow-md" src="https://i.ibb.co/qdhhz40/549591-452164474865343-127610589-n.jpg" />
+                    <img style={{ objectFit: 'cover' }} className="rounded-2xl w-36 h-36 shadow-md" src="https://i.ibb.co/qdhhz40/549591-452164474865343-127610589-n.jpg" />
                 </div>
             </center>
             <div className="bg-white p6 m-4 rounded-xl shadow-md	">

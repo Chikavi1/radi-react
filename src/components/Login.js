@@ -1,9 +1,15 @@
-import React,{ useState } from 'react'
+import React,{ useState, useContext, useEffect  } from 'react'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-const Login = () => {
+import { CRMContext } from '../context/CRMContext';
+
+
+
+const Login = (props) => {
   
+  const [ auth, guardarAuth ] = useContext( CRMContext );
+
   const [ usuario,setUsuario ] = useState({
     email: '',
     password: ''
@@ -12,6 +18,14 @@ const Login = () => {
   const [ error,mostrarError ] = useState(false);
  
   const [ mensajeError,setMensajeError ] = useState('');
+
+  useEffect( () => { 
+    const token = localStorage.getItem('token');
+    if(token){ 
+        guardarAuth({ token, auth: true });
+        props.history.push('/'); 
+    } 
+},[])
 
   const handleInputs = (e) => {
       setUsuario({
@@ -30,9 +44,17 @@ const Login = () => {
       axios.post('http://localhost:8080/api/login',usuario)
         .then((response) => {
           if(response.status == 200){
-            console.log(response.data);
+            // console.log(response.data);
 
-            localStorage.setItem('token',response.data.token);
+            const { token } = response.data;
+            localStorage.setItem('token',token);
+
+            guardarAuth({
+              token,
+              auth: true
+            });
+
+            props.history.push('/profile');
 
 
           }
@@ -135,7 +157,7 @@ const Login = () => {
                       <div className="mt-4">
                           <div className="flex justify-between">
                               <label className="block text-gray-700 text-sm font-bold mb-2" >Contraseña</label>
-                              <a href="" className="text-xs text-gray-500">Olvidaste tu contraseña?</a>
+                              <Link to="/forget" className="text-xs text-gray-500">Olvidaste tu contraseña?</Link>
                           </div>
                           <input onChange={ (e) => handleInputs(e) } className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password" name="password" />
                       </div>
@@ -154,4 +176,4 @@ const Login = () => {
   </div>
 )
                   }
-export default Login
+export default withRouter(Login)

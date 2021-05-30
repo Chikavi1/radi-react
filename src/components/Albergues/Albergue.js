@@ -53,7 +53,7 @@ export const Albergue = (props) => {
 return(
 
     <div className="z-0 bg-gray-50 h-screen" >
-        <img style={{ objectFit: 'cover' }} class="w-full p-2 rounded-3xl	" src="https://i.ibb.co/0qgNYLB/118114949-3230889310326165-2393965044989808666-o.jpg" />
+        <img style={{ objectFit: 'cover' }} className="w-full p-2 rounded-3xl	" src="https://i.ibb.co/0qgNYLB/118114949-3230889310326165-2393965044989808666-o.jpg" />
             <center>
                 <div className="-mt-12  w-48  rounded-2xl ">
                     <img style={{ objectFit: 'cover' }} className="rounded-2xl w-36 h-36 shadow-md" src="https://i.ibb.co/qdhhz40/549591-452164474865343-127610589-n.jpg" />
@@ -73,23 +73,23 @@ Todos nuestros rescatados se entregan esterilizados, desparasitados, con la vacu
 
 {/* scroll  */}
 
-<div class="flex flex-col bg-white m-auto p-auto">
+<div className="flex flex-col bg-white m-auto p-auto">
     <h1
-        class="flex py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800"
+        className="flex py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800"
       >
             Mascotas
     </h1>
 
     <div
-        class="flex overflow-x-scroll pb-10 hide-scroll-bar"
+        className="flex overflow-x-scroll pb-10 hide-scroll-bar"
       >
         <div
-          class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 "
+          className="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 "
         >
-          <div class="inline-block px-3">
+          <div className="inline-block px-3">
 
             <div
-              class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
             >
                 <div>
                     <div className="relative pb-5/6">
@@ -106,9 +106,9 @@ Todos nuestros rescatados se entregan esterilizados, desparasitados, con la vacu
             
             </div>
           </div>
-          <div class="inline-block px-3">
+          <div className="inline-block px-3">
             <div
-              class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
             >
 
             <div>
@@ -125,9 +125,9 @@ Todos nuestros rescatados se entregan esterilizados, desparasitados, con la vacu
                 
             </div>
           </div>
-          <div class="inline-block px-3">
+          <div className="inline-block px-3">
             <div
-              class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
             >
             <div>
                     <div className="relative pb-5/6">
@@ -145,9 +145,9 @@ Todos nuestros rescatados se entregan esterilizados, desparasitados, con la vacu
 
             </div>
           </div>
-          <div class="inline-block px-3">
+          <div className="inline-block px-3">
             <div
-              class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
             >
             <div>
                     <div className="relative pb-5/6">
@@ -164,9 +164,9 @@ Todos nuestros rescatados se entregan esterilizados, desparasitados, con la vacu
 
             </div>
           </div>
-          <div class="inline-block px-3">
+          <div className="inline-block px-3">
             <div
-              class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
             >
 
             <div>
@@ -183,9 +183,9 @@ Todos nuestros rescatados se entregan esterilizados, desparasitados, con la vacu
 
             </div>
           </div>
-          <div class="inline-block px-3">
+          <div className="inline-block px-3">
             <div
-              class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
             ></div>
           </div>
          

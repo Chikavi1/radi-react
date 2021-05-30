@@ -1,13 +1,16 @@
-import React, { useState,useEffect, useRef } from 'react'
+import React, { useState,useEffect,useContext, useRef } from 'react'
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import SelectSearch, { fuzzySearch } from 'react-select-search';
 import { countries } from '../data';
 import '../CrearMascota.css';
 
+
+
 export const Formulario = ({history}) => {
 
-  
+   
+
     const [city, setCity] = useState('MX');
 
     const [pets,setPets] = useState({
@@ -178,7 +181,7 @@ export const Formulario = ({history}) => {
         <div className="grid grid-cols-2">
             <div className="col-span-1">
                 <div className="mb-3 pt-0 p-3">
-                <select onChange={handleChange}  name="age" class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full">
+                <select onChange={handleChange}  name="age" className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>

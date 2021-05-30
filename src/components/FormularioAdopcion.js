@@ -265,12 +265,12 @@ return (
       <img className="rounded-t-lg w-5/6 mx-8 " src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=749&q=80" />
     <div className="w-5/6 p-4 mx-8 mb-3 bg-green-200 rounded-b-lg">
       <p className="text-gray-700 font-bold text-3xl">Radi</p>
-      <div class="px-6 py-4">
-      <span class="inline-block bg-grey-lighter rounded-full px-3 mt-2 mx-1 py-1 bg-green-500 text-sm font-bold text-white mr-2">Perro</span>
-      <span class="inline-block bg-grey-lighter rounded-full px-3 mt-2 mx-1 py-1 bg-green-500 text-sm font-bold text-white mr-2">Mestizo</span>
-      <span class="inline-block bg-grey-lighter rounded-full px-3 mt-2 mx-1 py-1 bg-green-500 text-sm font-bold text-white">Masculino</span>
-      <span class="inline-block bg-grey-lighter rounded-full px-3 mt-2 mx-1 py-1 bg-green-500 text-sm font-bold text-white">Mediano</span>
-      <span class="inline-block bg-grey-lighter rounded-full px-3 mt-2 mx-1 py-1 bg-green-500 text-sm font-bold text-white">Esterilizado</span>
+      <div className="px-6 py-4">
+      <span className="inline-block bg-grey-lighter rounded-full px-3 mt-2 mx-1 py-1 bg-green-500 text-sm font-bold text-white mr-2">Perro</span>
+      <span className="inline-block bg-grey-lighter rounded-full px-3 mt-2 mx-1 py-1 bg-green-500 text-sm font-bold text-white mr-2">Mestizo</span>
+      <span className="inline-block bg-grey-lighter rounded-full px-3 mt-2 mx-1 py-1 bg-green-500 text-sm font-bold text-white">Masculino</span>
+      <span className="inline-block bg-grey-lighter rounded-full px-3 mt-2 mx-1 py-1 bg-green-500 text-sm font-bold text-white">Mediano</span>
+      <span className="inline-block bg-grey-lighter rounded-full px-3 mt-2 mx-1 py-1 bg-green-500 text-sm font-bold text-white">Esterilizado</span>
 
     </div>
     </div>

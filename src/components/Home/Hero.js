@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Hero = () => (
     <div className="hero bg-gray-100 py-16">
@@ -8,9 +9,20 @@ const Hero = () => (
                 <div className="hero-text col-span-6">
                     <h1 className=" font-bold text-4xl md:text-5xl max-w-xl text-gray-900 leading-tight">Encuentra a tu mejor amigo</h1>
                     <hr className=" w-12 h-1 bg-orange-500 rounded-full mt-8"/>
-                    <p className="text-gray-800 text-base leading-relaxed mt-8 font-semibold">Sabemos que la mejor compañia es la de un peludo. Encuentra tu amigo ya!</p>
+                    <p className="text-gray-800 text-base leading-relaxed mt-8 font-semibold">Sabemos que la mejor compañia que puedes tener es la de un peludo. <span className="font-bold text-xl	">¡Encuentra tu amigo ya!</span></p>
                     <div className="get-app flex space-x-5 mt-10 justify-center md:justify-start">
-                        <button className="apple bg-white shadow-md px-3 py-2 rounded-lg flex items-center space-x-4">
+                        <Link to="/ingresar">
+                            <button className="apple bg-purple-900 text-white shadow-md px-5 py-3 rounded-lg flex items-center space-x-4">
+                            Iniciar sesion
+                            </button>
+                        </Link>
+                        <Link to="/registrar">
+
+                        <button className="apple bg-green-500 text-white shadow-md px-5 py-3 rounded-lg flex items-center space-x-4">
+                        Registrate
+                        </button>
+                        </Link>
+                        {/* <button className="apple bg-white shadow-md px-3 py-2 rounded-lg flex items-center space-x-4">
                             <div className="logo">
                                 <svg
                                     className="w-6 h-6"
@@ -26,8 +38,8 @@ const Hero = () => (
                                 <p className=" text-xs text-gray-600">Descarga la app</p>
                                 <p className=" text-xs font-semibold text-gray-900">Apple Store</p>
                             </div>
-                        </button>
-                        <button className="google bg-white shadow-md px-3 py-2 rounded-lg flex items-center space-x-4">
+                        </button> */}
+                        {/* <button className="google bg-white shadow-md px-3 py-2 rounded-lg flex items-center space-x-4">
                             <div className="image">
                                 <svg
                                     className="w-6 h-6"
@@ -43,7 +55,7 @@ const Hero = () => (
                                 <p className="text-xs text-gray-600" >Descarga la app</p>
                                 <p className="text-xs font-semibold text-gray-900">Google play</p>
                             </div>
-                        </button>
+                        </button> */}
                     </div>
                 </div>
 

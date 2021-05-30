@@ -94,8 +94,8 @@ return(
 
 
 
-//     <div class="relative h-32 w-32 bg-red-700">
-//   <div class="absolute inset-x-0 bottom-0 h-16 bg-green-700">3</div>
+//     <div className="relative h-32 w-32 bg-red-700">
+//   <div className="absolute inset-x-0 bottom-0 h-16 bg-green-700">3</div>
 // </div>
 
 
@@ -141,7 +141,7 @@ return(
         
     //     </div>
 
-    //     <footer class="absolute inset-x-0 bottom-0 h-16  bg-white z-10 overflow-hidden ">
+    //     <footer className="absolute inset-x-0 bottom-0 h-16  bg-white z-10 overflow-hidden ">
     //         <div className="grid grid-cols-2 p-3">
     //             <div className="col-span-1 inline">
     //                 <img className="rounded-full h-14 w-14 inline border-red-500 " src="https://images.unsplash.com/photo-1486302913014-862923f5fd48?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" />
@@ -219,56 +219,56 @@ return(
         <div className="mt-2 h-48 -m-6 w-screen bg-red-400">
             <div className="col-span-1">
 
-                <div class="flex flex-col bg-white m-auto p-auto">
+                <div className="flex flex-col bg-white m-auto p-auto">
 <h1
-        class="flex py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800"
+        className="flex py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800"
       >
         Vacunas
       </h1>
       <div
-        class="flex overflow-x-scroll pb-10 hide-scroll-bar"
+        className="flex overflow-x-scroll pb-10 hide-scroll-bar"
       >
         <div
-          class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 "
+          className="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 "
         >
-          <div class="inline-block px-3">
+          <div className="inline-block px-3">
             <div
-              class="w-48 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="w-48 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
             ></div>
           </div>
-          <div class="inline-block px-3">
+          <div className="inline-block px-3">
             <div
-              class="w-48 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="w-48 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
             ></div>
           </div>
-          <div class="inline-block px-3">
+          <div className="inline-block px-3">
             <div
-              class="w-48 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="w-48 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
             ></div>
           </div>
-          <div class="inline-block px-3">
+          <div className="inline-block px-3">
             <div
-              class="w-48 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="w-48 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
             ></div>
           </div>
-          <div class="inline-block px-3">
+          <div className="inline-block px-3">
             <div
-              class="w-48 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="w-48 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
             ></div>
           </div>
-          <div class="inline-block px-3">
+          <div className="inline-block px-3">
             <div
-              class="w-48 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="w-48 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
             ></div>
           </div>
-          <div class="inline-block px-3">
+          <div className="inline-block px-3">
             <div
-              class="w-48 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="w-48 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
             ></div>
           </div>
-          <div class="inline-block px-3">
+          <div className="inline-block px-3">
             <div
-              class="w-64 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              className="w-64 h-24 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
             ></div>
           </div>
         </div>

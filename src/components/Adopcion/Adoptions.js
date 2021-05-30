@@ -1,20 +1,20 @@
-import React,{ useState,useEffect } from 'react';
+import React,{ useState,useEffect,useContext } from 'react';
 import axios from 'axios';
-import { Link} from 'react-router-dom';
-
 import Cards from './Cards';
 import Pagination from '../Pagination';
 
 import '../../Mascotas.css';
-import '../../CrearMascota.css';
+// import '../../CrearMascota.css';
+
 
 
 export const Adoptions = () => {
 
+
     const [ posts, setPosts] = useState([]);
     const [ loading,setLoading] = useState(false);
     const [ currentPage, setCurrentPage] = useState(1);
-    const [ postsPerPage, setPostsPerPage ] = useState(6);
+    const [ postsPerPage ] = useState(18);
 
     const [showSearch,setShowSearch] = useState(false);
 
@@ -33,7 +33,11 @@ export const Adoptions = () => {
         setLoading(true);
         const { specie,gender,size,race } = busqueda;
 
-        const res = await axios.get(`http://localhost:8080/pets?size=${size}&gender=${gender}&specie=${specie}`);
+        const res = await axios.get(`http://localhost:8080/pets?size=${size}&gender=${gender}&specie=${specie}`,{
+          // headers:{
+          //   Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNoaWthdmlAaG90bWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNjE2OTkxOTEyLCJleHAiOjE2MTY5OTU1MTJ9.e1gYLsW-Mes_9obeidUOsT3vTmHH_j4TMS0LTR1JTD4`
+          // }
+        });
         setCurrentPage(1);
         setPosts(res.data);
         
@@ -50,7 +54,6 @@ export const Adoptions = () => {
       jumbotron.scrollIntoView({ behavior: 'smooth' });
     },[currentPage])
   
-    console.log(posts);
   
   
     const indexOfLastPost  = currentPage * postsPerPage;
@@ -91,9 +94,9 @@ return(
           { showSearch != true? 
           (   <button
             onClick={ () => setShowSearch(true) }
-            class="flex fading-searc mx-auto inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-indigo-500 uppercase transition bg-transparent border-2 border-indigo-500 rounded-full ripple hover:bg-indigo-100 focus:outline-none"
+            className="flex fading-searc mx-auto inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-indigo-500 uppercase transition bg-transparent border-2 border-indigo-500 rounded-full ripple hover:bg-indigo-100 focus:outline-none"
           >
-             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" className="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             Buscar
           </button>):
             
@@ -101,17 +104,17 @@ return(
             <div className={ showSearch != true ? 'fading container mt-3 mx-auto flex justify-center items-center p-2 md:p-0 ':"z-0 container mt-3 mx-auto flex justify-center items-center p-2 md:p-0" }>
                 <form  className={ showSearch != true ? "hidden border w-full md:w-3/4 border-gray-300 p-6 grid grid-cols-1 gap-6 bg-white shadow-lg rounded-lg" :"border w-full md:w-3/4 border-gray-300 p-6 grid grid-cols-1 gap-6 bg-white shadow-lg rounded-lg"}>
                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="grid  grid-cols-1 md:grid-cols-2 gap-2 border border-gray-200 p-2 rounded">
-                            <div class="col-span-1 mb-3 mt-3 pt-0 p-3 w-full">
-                            <select onChange={ (e) => handleInputs(e) } placeholder="seleccione especie"  name="specie" class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid  grid-cols-1 md:grid-cols-2 gap-2 border border-gray-200 p-2 rounded">
+                            <div className="col-span-1 mb-3 mt-3 pt-0 p-3 w-full">
+                            <select onChange={ (e) => handleInputs(e) } placeholder="seleccione especie"  name="specie" className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full">
                               <option value="0">Seleccione especie</option>
                               <option value="dog">Perro</option>
                               <option value="cat">Gato</option>
                             </select>
                             </div>
-                            <div class="col-span-1 mb-3 mt-3 pt-0 p-3 w-full">
-                            <select  onChange={ (e) => handleInputs(e) } name="gender" class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full">
+                            <div className="col-span-1 mb-3 mt-3 pt-0 p-3 w-full">
+                            <select  onChange={ (e) => handleInputs(e) } name="gender" className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full">
                               <option value="">Seleccione Genero</option>
                               <option value="0">Hembra</option>
                               <option value="1">Macho</option>
@@ -119,9 +122,9 @@ return(
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 border border-gray-200 p-2 rounded">
-                            <div class="mb-3 mt-3 pt-0 p-3 w-full ">
-                            <select  onChange={ (e) => handleInputs(e) } name="size" class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 border border-gray-200 p-2 rounded">
+                            <div className="mb-3 mt-3 pt-0 p-3 w-full ">
+                            <select  onChange={ (e) => handleInputs(e) } name="size" className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full">
                               <option value="0">Seleccione Talla</option>
                               <option value="CH">Chico</option>
                               <option value="M">Mediano</option>
@@ -129,8 +132,8 @@ return(
                               
                             </select>
                             </div>
-                            <div class="mb-3 mt-3 pt-0 p-3 w-full ">
-                            <select onChange={ (e) => handleInputs(e) }  name="race" class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full">
+                            <div className="mb-3 mt-3 pt-0 p-3 w-full ">
+                            <select onChange={ (e) => handleInputs(e) }  name="race" className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full">
                               <option value="0">Seleccione Raza</option>
                               <option value="mestizo">Mestizo</option>
                               <option value="criollo">Criollo</option>
@@ -141,10 +144,10 @@ return(
                       <p onClick={ () => clearSearch() }
       
       className="text-right text-blue-500 font-semibold">Restablecer Busqueda</p>
-                    <div class="flex justify-center"  >
+                    <div className="flex justify-center"  >
                     <button
             onClick={ (e) => { e.preventDefault(); setShowSearch(false)} }
-            class="flex font-bold fading-searc mx-auto inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-indigo-500 uppercase transition bg-transparent border-2 border-indigo-500 rounded-full ripple hover:bg-indigo-100 focus:outline-none"
+            className="flex font-bold fading-searc mx-auto inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-indigo-500 uppercase transition bg-transparent border-2 border-indigo-500 rounded-full ripple hover:bg-indigo-100 focus:outline-none"
           >
             Ocultar busqueda
           </button>
@@ -153,7 +156,7 @@ return(
                 </form>
             </div>
         
-        <div className="md:mx-36 grid md:grid-cols-3 gap-1 md:gap-1 m-4 jumbotron">
+        <div className="md:mx-36 grid md:grid-cols-2 lg:grid-cols-3 gap-1 md:gap-1 m-4 jumbotron">
             <Cards  className="grid md:grid-cols-4 md:gap-4" posts={currentPosts} loading={loading} />
 
         </div>

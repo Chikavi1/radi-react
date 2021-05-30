@@ -19,7 +19,7 @@ export const Posts = ({posts,loading}) => {
                 <Link to={`mascotas/${post.id}`} key={post.id}   data-aos="fade-up"  className="mb-10  sm:max-w-xs sm:w-full  mt-6 sm:flex-shrink-0  sm:px-2">
                     <div>
                         <div className="relative pb-5/6">
-                            <img className="w-full object-cover rounded-lg shadow-md h-64"  src={`http://localhost:8080/${post.photo}`} />
+                            <img loading="lazy"  className="w-full object-cover rounded-lg shadow-md h-64"  src={`${post.photo}`} />
                         </div>
                             
                         <div className="relative px-2 -mt-16 ">
@@ -35,8 +35,8 @@ export const Posts = ({posts,loading}) => {
                                     </div>
                                 </div>
                                 <h4 className="mt-1 text-gray-900  font-semibold text-lg capitalize"> {post.name} </h4>
-                                <div className="mt-1 text-left "  >
-                                    <span className="text-gray-500 text-left">{post.description}</span>
+                                <div className="mt-1 text-left  h-12 overflow-hidden"  >
+                                    <span className="text-gray-500 text-left   ">{post.description}</span>
                                 </div>
                                 <div className="mt-2 flex items-center text-sm text-gray-400">
                                     {post.city}

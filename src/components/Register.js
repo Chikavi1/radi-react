@@ -14,7 +14,7 @@ const Register = () => {
     password: '',
     password_confirmation: ''
   });
-
+  const [passwordShow,setPasswordShow] = useState(false);
   const [ error,mostrarError ] = useState(false);
   const [ mensajeCorreo,mostrarMensajeCorreo ] = useState(false);
   const [ mensajeError,setMensajeError ] = useState('');
@@ -23,15 +23,9 @@ const Register = () => {
 
     e.preventDefault();
 
-    const {name,email, password, password_confirmation } = usuario;
+    const {name,email, password } = usuario;
 
-    if( name.trim() != '' && email.trim() != '' && password.trim() != '' && password_confirmation.trim() != '' ){
-      if( password != password_confirmation){
-        setMensajeError('La contraseña no coinciden.')
-        mostrarError(true);
-        return;
-      }
-      mostrarError(false)
+    if( name.trim() != '' && email.trim() != '' && password.trim() != '' ){
 
       axios.post('http://localhost:8080/api/register',usuario)
         .then((response) => {
@@ -53,7 +47,6 @@ const Register = () => {
       mostrarError(true);
       return;
     }
-    console.log(password,password_confirmation)
   }
 
   const handleInputs = (e) => {
@@ -153,14 +146,18 @@ return   (
 
                 <div className="mt-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">Contraseña</label>
-                    <input onChange={ (e) => handleInputs(e) } type="password" className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"  name="password" />
+                    <input 
+                      onChange={ (e) => handleInputs(e) } 
+                      type={passwordShow ? "text" : "password"} 
+                      name="password" 
+                      className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"  
+                      />
                 </div>
-                <div className="mt-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">Confirma contraseña</label>
-                    <input onChange={ (e) => handleInputs(e) } type="password" className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"   name="password_confirmation" />
-                </div>
+                <p className="py-3 font-bold text-right" onClick={ () => setPasswordShow(!passwordShow) }>
+                  { passwordShow? (<span>Ocultar </span>) : <span>Mostrar</span>} 
+                </p>
 
-                <div className="mt-8">
+               <div className="mt-8">
                     <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600">Registrate</button>
                 </div>
                 <div className="mt-4 flex items-center justify-between">
@@ -168,8 +165,6 @@ return   (
                         <Link to="/ingresar" className="text-xs text-gray-500 uppercase">o Ingresa con tu cuenta</Link>
                     <span className="border-b w-1/5 md:w-1/4"></span>
                 </div>
-
-
                 </div>
 )
 }

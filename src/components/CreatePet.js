@@ -1,10 +1,22 @@
-import React from 'react'
+import React,{ useContext } from 'react'
 import Formulario from './Formulario'
 
-const CreatePet = () => (
-  <section className="CreatePet">
+import { CRMContext } from '../context/CRMContext';
+
+
+const CreatePet = () => {
+  
+
+  const [ auth, guardarAuth ] = useContext( CRMContext )
+  console.log( auth );
+
+
+  return(
+  <div className="CreatePet">
     <Formulario/>
-  </section>
+  </div>
 )
+
+  }
 
 export default CreatePet

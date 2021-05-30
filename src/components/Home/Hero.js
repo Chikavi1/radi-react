@@ -7,7 +7,7 @@ const Hero = () => (
             <div className="hero-wrapper grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
 
                 <div className="hero-text col-span-6">
-                    <h1 className=" font-bold text-4xl md:text-5xl max-w-xl text-gray-900 leading-tight">Encuentra a tu mejor amigo</h1>
+                    <h1 className=" font-bold text-4xl md:text-5xl max-w-xl text-gray-900 leading-tight">Encuentra a tu Veterinario más cercano</h1>
                     <hr className=" w-12 h-1 bg-orange-500 rounded-full mt-8"/>
                     <p className="text-gray-800 text-base leading-relaxed mt-8 font-semibold">Sabemos que la mejor compañia que puedes tener es la de un peludo. <span className="font-bold text-xl	">¡Encuentra tu amigo ya!</span></p>
                     <div className="get-app flex space-x-5 mt-10 justify-center md:justify-start">
